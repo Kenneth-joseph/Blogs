@@ -10,7 +10,7 @@ class User(db.Model,UserMixin):
     id = db.Column(db.Integer,primary_key = True)
     email = db.Column(db.String(255),unique= True,nullable=False)
     username =db.Column(db.String(255),unique =True,nullable=False)
-    password_hash = db.Column(db.String(),unique=True)
+    password_hash = db.Column(db.String())
     blog=db.relationship('Blog', backref='user', lazy='dynamic')
     comment=db.relationship('Comment', backref='user', lazy='dynamic')
 
@@ -20,10 +20,11 @@ class User(db.Model,UserMixin):
 
     @password.setter
     def password(self,password):
-        self.secure_password = generate_password_hash(password)
+        self.password_hash = generate_password_hash(password)
 
     def verify_password(self,password):
-        return check_password_hash(self.secure_password,password)
+        return check_password_hash(self.password_hash,password)
+        # print(check_password_hash,"eeeeeeeeeeeeee")
         
     def save_user(self):
         db.session.add(self)
