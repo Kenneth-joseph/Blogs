@@ -9,9 +9,12 @@ from .form import BlogForm,CommentForm
 
 @main.route('/')
 def index():
-    title:"hello kent"
+    blog = Blog.query.all()
+    technology = Blog.query.filter_by(category='Technology').all
+    sports=Blog.query.filter_by(category='Sports').all
+    music=Blog.query.filter_by(category='Music').all
     
-    return render_template('index.html')
+    return render_template('index.html', technology=technology,music=music,blog=blog,sports=sports)
 
 
 @main.route('/blog',methods=['GET','POST'])
