@@ -3,6 +3,7 @@ from . import main
 from flask_login import login_required,current_user
 from ..models import User,Comment,Blog
 from .. import db
+from .form import BlogForm,CommentForm
 
 
 
@@ -22,6 +23,7 @@ def new_blog():
         category=form.category.data
         post=form.post.data
         user_id=current_user
+        
         new_blog_object = Blog(post=post,title=title,category=category,user_id=current_user._get_current_object().id)
         new_blog_object.save_blog()
         return redirect(url_for('main.index'))
@@ -43,11 +45,6 @@ def comment(blog_id):
         new_comment.save_comment()
         return redirect(url_for('.comment',blog_id=blog_id))
     return render_template('comment.html',form=form,blog=blog,all_comments=all_comments)
-
-
-
-    return render_template('comment.html')
-
 
 
 @main.route('/user/<uname>')
