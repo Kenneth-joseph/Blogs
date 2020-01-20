@@ -1,5 +1,5 @@
-.container{
-    background-image:linear-gradient(rgba(0, 0, 0, 0.5), rgba(0,0,0,0.5)),url("../static/images/BLOG.jpeg");
+.welcome{
+    background-image:linear-gradient(rgba(0, 0, 0, 0.5), rgba(0,0,0,0.5)),url("../static/images/BLOG.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     height: 80vh;
