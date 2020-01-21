@@ -9,8 +9,8 @@
                   <h5 class="card-title"> <h3> {{user.username| capitalize}} </h3>
                   </h5>
                   <h6 class="card-subtitle mb-2 text-muted">{{user.email}}</h6>
-                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                  <a href="#" class="card-link">Card link</a>
+                  <p class="card-text">{{user.blog.title}} </p>
+                  <a href="{{url_for('main.index')}}" class="card-link">HOME</a>
                 </div>
               </div>
         </div>
