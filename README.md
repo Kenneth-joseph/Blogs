@@ -6,6 +6,8 @@
 
 ## Screenshots
 > **Visual presentation of my work**
+ >>##### Landing page
+![this shows the top page](sta)
  >>##### Lnding page
 ![this shows the top page](static/image/news.png)
 
